@@ -6,11 +6,17 @@ public class Comtribuente {
     private double renda;
 
     public Comtribuente(String nome, String cpf, String uf, double renda) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.uf = uf;
-        this.renda = renda;
+        setNome (nome);
+        setCpf (cpf);
+        setUf (uf);
+        setRenda (renda);
     }
+public double calcularImposto(){
+
+}
+
+
+
 
     @Override
     public String toString() {
@@ -27,7 +33,11 @@ public class Comtribuente {
     }
 
     public void setNome(String nome) {
-
+   if (nome == null || nome.isBlank()){
+throw new IllegalArgumentException("nome invalido");
+   } else {
+       this.nome = nome;
+   }
 
     }
 
@@ -36,6 +46,11 @@ public class Comtribuente {
     }
 
     public void setCpf(String cpf) {
+        if (cpf == null || cpf.isBlank()){
+            throw new IllegalArgumentException("cpf invalido");
+        }else {
+            this.cpf = cpf;
+        }
         this.cpf = cpf;
     }
 
@@ -44,6 +59,13 @@ public class Comtribuente {
     }
 
     public void setUf(String uf) {
+        if (uf == null || uf.isBlank()){
+            throw new IllegalArgumentException("uf invalido");
+        }else {
+            this.uf = uf ;
+
+        }
+
         this.uf = uf;
     }
 
@@ -53,9 +75,12 @@ public class Comtribuente {
 
     public void setRenda(double renda) {
        if (renda<=0){
-           System.out.println("erro  nao e invalido");
+           throw new IllegalArgumentException("renda invalido");
        }else {
            this.renda = renda;
+
        }
+
     }
+
 }
