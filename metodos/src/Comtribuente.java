@@ -1,31 +1,33 @@
+
 public class Comtribuente {
 
     private String nome;
     private String cpf;
     private String uf;
-    private double renda;
+    private double rendaAnual;
 
-    public Comtribuente(String nome, String cpf, String uf, double renda) {
-        setNome (nome);
-        setCpf (cpf);
-        setUf (uf);
-        setRenda (renda);
+    public Comtribuente(String nome, String cpf, String uf, double rendaAnual) {
+        setNome(nome);
+        setCpf(cpf);
+        setUf(uf);
+        setRendaAnual(rendaAnual);
     }
-public double calcularImposto(){
 
-}
+    public double calcularImposto() {
+        return rendaAnual * calcularAliquota();
+    }
 
-
-
-
-    @Override
-    public String toString() {
-        return "Comtribuente{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", uf='" + uf + '\'' +
-                ", renda=" + renda +
-                '}';
+    private double calcularAliquota() {
+        if (rendaAnual <= 4000) {
+            return 0;
+        } else if (rendaAnual <= 9000) {
+            return 0.058;
+        } else if (rendaAnual <= 25000) {
+            return 0.15;
+        } else if (rendaAnual <= 35000) {
+            return 0.275;
+        }
+        return 0.3;
     }
 
     public String getNome() {
@@ -33,12 +35,11 @@ public double calcularImposto(){
     }
 
     public void setNome(String nome) {
-   if (nome == null || nome.isBlank()){
-throw new IllegalArgumentException("nome invalido");
-   } else {
-       this.nome = nome;
-   }
-
+        if (nome == null || nome.isBlank()) {
+            System.out.println("Erro, nome inválido");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getCpf() {
@@ -46,12 +47,11 @@ throw new IllegalArgumentException("nome invalido");
     }
 
     public void setCpf(String cpf) {
-        if (cpf == null || cpf.isBlank()){
-            throw new IllegalArgumentException("cpf invalido");
-        }else {
+        if (cpf == null || cpf.isBlank() || cpf.length() != 11) {
+            System.out.println("Erro, cpf inválido");
+        } else {
             this.cpf = cpf;
         }
-        this.cpf = cpf;
     }
 
     public String getUf() {
@@ -59,28 +59,28 @@ throw new IllegalArgumentException("nome invalido");
     }
 
     public void setUf(String uf) {
-        if (uf == null || uf.isBlank()){
-            throw new IllegalArgumentException("uf invalido");
-        }else {
-            this.uf = uf ;
-
+        if (uf == null || uf.isBlank() || uf.length() != 2) {
+            System.out.println("Erro, uf inválida");
+        } else {
+            this.uf = uf;
         }
-
-        this.uf = uf;
     }
 
-    public double getRenda() {
-        return renda;
+    public double getRendaAnual() {
+        return rendaAnual;
     }
 
-    public void setRenda(double renda) {
-       if (renda<=0){
-           throw new IllegalArgumentException("renda invalido");
-       }else {
-           this.renda = renda;
+    public void setRendaAnual(double rendaAnual) {
+        if (rendaAnual < 0) {
+            System.out.println("Erro, renda anual inválida");
+        } else {
+            this.rendaAnual = rendaAnual;
+        }
+    }
 
-       }
-
+    @Override
+    public String toString() {
+        return "Contribuinte [nome=" + nome + ", cpf=" + cpf + ", uf=" + uf + ", rendaAnual=" + rendaAnual + "]";
     }
 
 }
