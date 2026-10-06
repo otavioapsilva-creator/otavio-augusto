@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Scanner;
 
 public class aat01 {
@@ -5,7 +6,6 @@ public class aat01 {
     // Se esse número estiver presente na lista, exiba o índice. Caso contrário, informe que não está presente
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
     }
 }

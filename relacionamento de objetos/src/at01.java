@@ -11,22 +11,17 @@ public class at01 {
         idades.add(22);
         idades.add(20);
         idades.add(25);
-        idades.add(18);
-
-
-        System.out.println(idades.contains(25));
-        System.out.println(idades.contains(13));
-
-        System.out.println(idades.indexOf(22));
-
-        System.out.println(idades.size());
-        System.out.println(idades.getLast());
-
-        Collections.sort(idades);
+        idades.add(12);
 
         System.out.println("insira um numero ");
         int idade = sc.nextInt();
-        idades.add (idade);
-        
+        int indice = idades.indexOf(idade);
+
+
+        if (indice != -1){
+            System.out.println(indice);
+        }else {
+            System.out.println("falho");
+        }
     }
 }
