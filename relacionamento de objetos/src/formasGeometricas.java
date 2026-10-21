@@ -13,16 +13,17 @@ public class formasGeometricas {
     }
 
 public  retangulo obterMaiorArea() {
- double maiorArea = Double.MIN_VALUE;
- retangulo MaisArea = null;
+    double maiorArea = Double.MIN_VALUE;
+    retangulo MaisArea = null;
 
- for (retangulo r  : retangulos) {
-     if (r.obterArea() > maiorArea){
-         maiorArea = r.obterArea();
-         MaisArea = r;
-     }
- }
+    for (retangulo r : retangulos) {
+        if (r.obterArea() > maiorArea) {
+            maiorArea = r.obterArea();
+            MaisArea = r;
+        }
+    }
 
+    return MaisArea;
 }
 
 

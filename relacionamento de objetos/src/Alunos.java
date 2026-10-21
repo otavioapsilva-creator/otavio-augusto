@@ -1,26 +1,29 @@
 public class Alunos {
+
     private String nome;
     private int idade;
-    private String matricula;
+    private int matricula;
     private String curso;
     private double mediaFinal;
+    private String email;
 
-    public Alunos(String nome, int idade, String matricula, String curso,double mediaFinal) {
-       setNome(nome);
-        setIdade(idade);
-      setMatricula(matricula);
-        setCurso(curso);
-        setMediaFinal(mediaFinal);
+    // Construtor
+    public Alunos(String nome, int idade, int matricula, String curso, double mediaFinal, String email) {
+        this.nome = nome;
+        this.idade = idade;
+        this.matricula = matricula;
+        this.curso = curso;
+        this.mediaFinal = mediaFinal;
+        this.email = email;
     }
+
+    // Getters e Setters
 
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
-        if (nome == null || nome.isBlank()){
-            throw new IllegalArgumentException("nome invalido");
-        }
         this.nome = nome;
     }
 
@@ -29,21 +32,14 @@ public class Alunos {
     }
 
     public void setIdade(int idade) {
-        if (idade <= 0 ){
-            throw new IllegalArgumentException("idade invalida");
-
-        }
         this.idade = idade;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        if (matricula == null || matricula.isBlank()){
-            throw new IllegalArgumentException("matricula invalida");
-        }
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 
@@ -52,9 +48,6 @@ public class Alunos {
     }
 
     public void setCurso(String curso) {
-        if (curso == null || curso.isBlank()){
-            throw new IllegalArgumentException("curso invalido");
-        }
         this.curso = curso;
     }
 
@@ -63,20 +56,27 @@ public class Alunos {
     }
 
     public void setMediaFinal(double mediaFinal) {
-        if (mediaFinal < 0 ){
-            throw new IllegalArgumentException("media invalida");
-        }
         this.mediaFinal = mediaFinal;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // toString
     @Override
     public String toString() {
-        return "Alunos{" +
+        return "Aluno{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
-                ", matricula='" + matricula + '\'' +
+                ", matricula=" + matricula +
                 ", curso='" + curso + '\'' +
                 ", mediaFinal=" + mediaFinal +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
