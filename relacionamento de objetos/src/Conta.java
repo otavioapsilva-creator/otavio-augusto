@@ -3,13 +3,13 @@ public class Conta {
     private String nomeTitular;
     private double saldo;
 
-    // Construtor
+
     public Conta(String nomeTitular, double saldo) {
         this.nomeTitular = nomeTitular;
         this.saldo = saldo;
     }
 
-    // Getters e Setters
+
 
     public String getNomeTitular() {
         return nomeTitular;
@@ -27,7 +27,7 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    // Método sacar
+
     public void sacar(double valor) {
 
         if (valor <= 0) {
@@ -45,7 +45,7 @@ public class Conta {
         saldo -= valor;
     }
 
-    // Método depositar
+
     public void depositar(double valor) {
 
         if (valor <= 0) {
@@ -57,7 +57,7 @@ public class Conta {
         saldo += valor;
     }
 
-    // Método transferir
+
     public void transferir(Conta contaDestino, double valor) {
 
         if (contaDestino == null) {
@@ -82,7 +82,7 @@ public class Conta {
         contaDestino.saldo += valor;
     }
 
-    // Método simular investimento
+
     public double simularInvestimento(double valor, int meses) {
 
         if (valor <= 0) {
@@ -97,13 +97,13 @@ public class Conta {
             );
         }
 
-        // Juros compostos de 1% ao mês
+
         double montante = valor * Math.pow(1.01, meses);
 
         return montante;
     }
 
-    // toString
+
     @Override
     public String toString() {
         return "Conta{" +

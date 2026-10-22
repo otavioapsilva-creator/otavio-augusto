@@ -1,25 +1,27 @@
 public class Produto {
+private String marca;
+private String modelo;
+private double preco;
+private int qnt_estoque;
 
-    private String marca;
-    private String modelo;
-    private double preco;
-    private int quantidadeEstoque;
-
-    // Construtor
-    public Produto(String marca, String modelo, double preco, int quantidadeEstoque) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.preco = preco;
-        this.quantidadeEstoque = quantidadeEstoque;
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", preço=" + preco +
+                ", qnt_estoque=" + qnt_estoque +
+                '}';
     }
-
-    // Getters e Setters
 
     public String getMarca() {
         return marca;
     }
 
     public void setMarca(String marca) {
+        if (marca == null || marca.isBlank()){
+            throw new IllegalArgumentException("Marca invalida");
+        }
         this.marca = marca;
     }
 
@@ -28,63 +30,39 @@ public class Produto {
     }
 
     public void setModelo(String modelo) {
+        if (modelo == null || modelo.isBlank()){
+            throw new IllegalArgumentException("modelo invalido");
+        }
         this.modelo = modelo;
     }
 
-    public double getPreco() {
+    public double getPreço() {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public int getQuantidadeEstoque() {
-        return quantidadeEstoque;
-    }
-
-    public void setQuantidadeEstoque(int quantidadeEstoque) {
-        this.quantidadeEstoque = quantidadeEstoque;
-    }
-
-    // Adicionar unidades ao estoque
-    public void adicionarEstoque(int quantidade) {
-
-        if (quantidade <= 0) {
-            throw new IllegalArgumentException(
-                    "A quantidade deve ser maior que zero."
-            );
+    public void setPreço(double preço) {
+        if (preco < 0 ){
+            throw new IllegalArgumentException("preco invalido");
         }
-
-        quantidadeEstoque += quantidade;
+        this.preco = preço;
     }
 
-    // Vender produto
-    public void vender(int quantidade) {
-
-        if (quantidade <= 0) {
-            throw new IllegalArgumentException(
-                    "A quantidade deve ser maior que zero."
-            );
-        }
-
-        if (quantidade > quantidadeEstoque) {
-            throw new IllegalArgumentException(
-                    "Quantidade insuficiente em estoque."
-            );
-        }
-
-        quantidadeEstoque -= quantidade;
+    public int getQnt_estoque() {
+        return qnt_estoque;
     }
 
-    // toString
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", preco=" + preco +
-                ", quantidadeEstoque=" + quantidadeEstoque +
-                '}';
+    public void setQnt_estoque(int qnt_estoque) {
+        if (qnt_estoque < 0 ){
+            throw new IllegalArgumentException("quantidade invalida");
+        }
+        this.qnt_estoque = qnt_estoque;
+    }
+
+    public Produto(String marca, String modelo, double preço, int qnt_estoque) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.preco = preço;
+        this.qnt_estoque = qnt_estoque;
+
     }
 }

@@ -13,9 +13,9 @@ public class SistemaAlunos {
     public void adicionarAluno(Alunos aluno) throws Exception {
 
         // Verifica se o e-mail já está cadastrado
-        for (Alunos alunoExistente : alunos) {
+        for (Alunos a : alunos) {
 
-            if (alunoExistente.getEmail().equalsIgnoreCase(aluno.getEmail())) {
+            if (a.getEmail().equalsIgnoreCase(aluno.getEmail())) {
                 throw new Exception("E-mail já cadastrado!");
             }
         }
