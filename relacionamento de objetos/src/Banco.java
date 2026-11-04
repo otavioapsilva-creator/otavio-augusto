@@ -10,22 +10,21 @@ public class Banco {
     }
 
     // Adicionar conta
-    public void adicionarConta(Conta conta) {
+    public void adicionarConta(Conta c) {
 
-        if (conta == null) {
+        if (c == null) {
             throw new IllegalArgumentException(
-                    "A conta não pode ser nula."
-            );
+                    "A conta não pode ser nula.");
         }
 
-        contas.add(conta);
+        contas.add(c);
     }
 
     // Listar contas
     public void listarContas() {
 
-        for (Conta conta : contas) {
-            System.out.println(conta);
+        for (Conta c : contas) {
+            System.out.println(c);
         }
     }
 }
