@@ -1,4 +1,4 @@
-public class Ex4 {
+public class At04 {
     public static void main(String[] args) {
         // Criação de múltiplos objetos independentes da classe Produto.
         Produto p1 = new Produto("Cimento", "Riachuelo", 9.99, 10);
