@@ -9,9 +9,7 @@ public class exeP {
     public exeP(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    public boolean determinarMaiorIdade(){
-        int idade =
-    }
+
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
